@@ -1,0 +1,98 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Daily Book Instructions";
+    var currentTime = DateTime.Now;
+}
+
+<div class="journal-page">
+    <section class="editor-panel">
+        <div class="editor-header">
+            <div>
+                <div class="editor-date">@currentTime.ToString("dd MMM yyyy")</div>
+                <div class="editor-sub">@currentTime.ToString("dddd, h:mm tt")</div>
+            </div>
+            <div class="editor-actions">
+                <button type="submit" form="cancelForm" class="secondary">Discard</button>
+                <button type="submit" form="journalForm" class="primary">@((Model.IsEditing) ? "Save" : "Done")</button>
+            </div>
+        </div>
+
+        <form id="journalForm" method="post">
+            @if (Model.IsEditing)
+            {
+                <input type="hidden" asp-for="EditIndex" />
+            }
+            <div class="journal-card">
+                <div class="field-group">
+                    <label for="Date">Date</label>
+                    <input asp-for="Instruction.Date" type="date" />
+                </div>
+                <div class="field-group">
+                    <label for="Topic">Title</label>
+                    <input asp-for="Instruction.Topic" placeholder="Title..." />
+                </div>
+                <div class="field-group">
+                    <label for="Content">Write your thoughts here...</label>
+                    <textarea asp-for="Instruction.Content" rows="8" placeholder="Write your thoughts here..."></textarea>
+                </div>
+                <div class="field-row">
+                    <div class="field-half">
+                        <label for="Goal">Goal</label>
+                        <input asp-for="Instruction.Goal" placeholder="Goal" />
+                    </div>
+                    <div class="field-half">
+                        <label for="Notes">Notes</label>
+                        <input asp-for="Instruction.Notes" placeholder="Notes" />
+                    </div>
+                </div>
+            </div>
+        </form>
+        <form id="cancelForm" method="post" asp-page-handler="Cancel"></form>
+    </section>
+
+    <section class="list-panel">
+        <div class="list-header">
+            <div>
+                <p class="small-label">JOURNAL ENTRIES</p>
+                <h2>@currentTime.ToString("MMMM yyyy")</h2>
+                <p class="list-meta">@currentTime.ToString("dddd") · @Model.Instructions.Count entry(s)</p>
+            </div>
+            <button class="add-button" type="button">+</button>
+        </div>
+
+        @if (Model.Instructions.Any())
+        {
+            var entries = Model.Instructions.Select((item, idx) => new { item, idx })
+                .OrderByDescending(x => x.item.Date)
+                .ToList();
+
+            @foreach (var wrapped in entries)
+            {
+                <article class="entry-card">
+                    <div class="entry-top">
+                        <span class="entry-time">@wrapped.item.SavedAt.ToString("h:mm tt")</span>
+                        <div class="entry-actions-inline">
+                            <form method="post" asp-page-handler="Edit">
+                                <input type="hidden" name="index" value="@wrapped.idx" />
+                                <button type="submit" class="action-button">Edit</button>
+                            </form>
+                            <form method="post" asp-page-handler="Delete" onsubmit="return confirm('Delete this entry?');">
+                                <input type="hidden" name="index" value="@wrapped.idx" />
+                                <button type="submit" class="action-button delete-button">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                    <h3>@wrapped.item.Topic</h3>
+                    <p class="entry-sub">@wrapped.item.Content</p>
+                </article>
+            }
+        }
+        else
+        {
+            <div class="card empty-state">
+                <p>No journal entries yet. Click Done to save your first entry.</p>
+            </div>
+        }
+    </section>
+</div>
