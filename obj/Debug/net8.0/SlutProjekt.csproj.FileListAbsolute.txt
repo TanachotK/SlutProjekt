@@ -27,3 +27,4 @@ C:\Project\SlutProjekt\obj\Debug\net8.0\staticwebassets.development.json
 C:\Project\SlutProjekt\obj\Debug\net8.0\staticwebassets.build.endpoints.json
 C:\Project\SlutProjekt\obj\Debug\net8.0\swae.build.ex.cache
 C:\Project\SlutProjekt\bin\Debug\net8.0\SlutProjekt.staticwebassets.runtime.json
+C:\Project\SlutProjekt\obj\Debug\net8.0\SlutProjekt.sourcelink.json
