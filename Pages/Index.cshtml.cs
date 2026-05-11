@@ -1,3 +1,4 @@
+using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SlutProjekt.Models;
@@ -6,7 +7,19 @@ namespace SlutProjekt;
 
 public class IndexModel : PageModel
 {
+    private static readonly object _fileLock = new();
     private static readonly List<DailyInstruction> _instructions = new();
+    private static readonly string _dataFilePath = Path.Combine(Environment.CurrentDirectory, "journal-entries.json");
+    private static readonly JsonSerializerOptions _jsonOptions = new JsonSerializerOptions
+    {
+        PropertyNameCaseInsensitive = true,
+        WriteIndented = true
+    };
+
+    static IndexModel()
+    {
+        LoadEntries();
+    }
 
     [BindProperty]
     public DailyInstruction Instruction { get; set; } = new();
@@ -52,6 +65,7 @@ public class IndexModel : PageModel
             });
         }
 
+        SaveEntries();
         return RedirectToPage();
     }
 
@@ -60,6 +74,7 @@ public class IndexModel : PageModel
         if (index >= 0 && index < _instructions.Count)
         {
             _instructions.RemoveAt(index);
+            SaveEntries();
         }
 
         return RedirectToPage();
@@ -89,6 +104,48 @@ public class IndexModel : PageModel
     public IActionResult OnPostCancel()
     {
         return RedirectToPage();
+    }
+
+    private static void LoadEntries()
+    {
+        lock (_fileLock)
+        {
+            if (!System.IO.File.Exists(_dataFilePath))
+            {
+                return;
+            }
+
+            try
+            {
+                var json = System.IO.File.ReadAllText(_dataFilePath);
+                var loaded = JsonSerializer.Deserialize<List<DailyInstruction>>(json, _jsonOptions);
+                if (loaded != null)
+                {
+                    _instructions.Clear();
+                    _instructions.AddRange(loaded);
+                }
+            }
+            catch
+            {
+                // ignore invalid file and keep empty list
+            }
+        }
+    }
+
+    private static void SaveEntries()
+    {
+        lock (_fileLock)
+        {
+            try
+            {
+                var json = JsonSerializer.Serialize(_instructions, _jsonOptions);
+                System.IO.File.WriteAllText(_dataFilePath, json);
+            }
+            catch
+            {
+                // ignore save errors for now
+            }
+        }
     }
 }
 

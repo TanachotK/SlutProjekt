@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Project\\SlutProjekt\\SlutProjekt.csproj": {}
+    "C:\\Users\\tanac\\OneDrive\\Documents\\GitHub\\SlutProjekt\\SlutProjekt.csproj": {}
   },
   "projects": {
-    "C:\\Project\\SlutProjekt\\SlutProjekt.csproj": {
+    "C:\\Users\\tanac\\OneDrive\\Documents\\GitHub\\SlutProjekt\\SlutProjekt.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Project\\SlutProjekt\\SlutProjekt.csproj",
+        "projectUniqueName": "C:\\Users\\tanac\\OneDrive\\Documents\\GitHub\\SlutProjekt\\SlutProjekt.csproj",
         "projectName": "SlutProjekt",
-        "projectPath": "C:\\Project\\SlutProjekt\\SlutProjekt.csproj",
+        "projectPath": "C:\\Users\\tanac\\OneDrive\\Documents\\GitHub\\SlutProjekt\\SlutProjekt.csproj",
         "packagesPath": "C:\\Users\\tanac\\.nuget\\packages\\",
-        "outputPath": "C:\\Project\\SlutProjekt\\obj\\",
+        "outputPath": "C:\\Users\\tanac\\OneDrive\\Documents\\GitHub\\SlutProjekt\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tanac\\AppData\\Roaming\\NuGet\\NuGet.Config"

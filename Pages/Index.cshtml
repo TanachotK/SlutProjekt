@@ -18,11 +18,12 @@
             </div>
         </div>
 
-        <form id="journalForm" method="post">
+        <form id="journalForm" action="/" method="post">
             @if (Model.IsEditing)
             {
                 <input type="hidden" asp-for="EditIndex" />
             }
+            @Html.AntiForgeryToken()
             <div class="journal-card">
                 <div class="field-group">
                     <label for="Date">Date</label>
@@ -63,7 +64,8 @@
 
         @if (Model.Instructions.Any())
         {
-            var entries = Model.Instructions.Select((item, idx) => new { item, idx })
+            var entries = Model.Instructions
+                .Select((item, originalIndex) => new { item, originalIndex })
                 .OrderByDescending(x => x.item.Date)
                 .ToList();
 
@@ -74,17 +76,21 @@
                         <span class="entry-time">@wrapped.item.SavedAt.ToString("h:mm tt")</span>
                         <div class="entry-actions-inline">
                             <form method="post" asp-page-handler="Edit">
-                                <input type="hidden" name="index" value="@wrapped.idx" />
+                                <input type="hidden" name="index" value="@wrapped.originalIndex" />
                                 <button type="submit" class="action-button">Edit</button>
                             </form>
                             <form method="post" asp-page-handler="Delete" onsubmit="return confirm('Delete this entry?');">
-                                <input type="hidden" name="index" value="@wrapped.idx" />
+                                <input type="hidden" name="index" value="@wrapped.originalIndex" />
                                 <button type="submit" class="action-button delete-button">Delete</button>
                             </form>
                         </div>
                     </div>
                     <h3>@wrapped.item.Topic</h3>
                     <p class="entry-sub">@wrapped.item.Content</p>
+                    <div class="entry-details">
+                        <p><strong>Goal:</strong> @wrapped.item.Goal</p>
+                        <p><strong>Notes:</strong> @wrapped.item.Notes</p>
+                    </div>
                 </article>
             }
         }

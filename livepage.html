@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily Book Instructions - SlutProjekt</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mini.css/3.0.1/mini-default.min.css" />
+    <link rel="stylesheet" href="/css/site.css" />
+</head>
+<body>
+    <header>
+        <a href="/" class="logo">SlutProjekt</a>
+    </header>
+    <main class="container">
+        
+<div class="journal-page">
+    <section class="editor-panel">
+        <div class="editor-header">
+            <div>
+                <div class="editor-date">11 maj 2026</div>
+                <div class="editor-sub">m&#xE5;ndag, 10:16 </div>
+            </div>
+            <div class="editor-actions">
+                <button type="submit" form="cancelForm" class="secondary">Discard</button>
+                <button type="submit" form="journalForm" class="primary">Done</button>
+            </div>
+        </div>
+
+        <form id="journalForm" action="/" method="post">
+            <input name="__RequestVerificationToken" type="hidden" value="CfDJ8B74rpNR0n5HibaSWsAo31cdcR1S1eCK7QXfWrwo5hoLeZXLUUEvUp6052Dt6dMB9AdOeOHEQpwz5WgWMwLO2AM69qTqtDdEtoqvzaObOKAiFap0mWMREjn3T1KHKvgcznRAupHV4chHuUPMBNnuxHE" />
+            <div class="journal-card">
+                <div class="field-group">
+                    <label for="Date">Date</label>
+                    <input type="date" data-val="true" data-val-required="The Date field is required." id="Instruction_Date" name="Instruction.Date" value="2026-05-11" /><input name="__Invariant" type="hidden" value="Instruction.Date" />
+                </div>
+                <div class="field-group">
+                    <label for="Topic">Title</label>
+                    <input placeholder="Title..." type="text" data-val="true" data-val-required="The Topic field is required." id="Instruction_Topic" name="Instruction.Topic" value="" />
+                </div>
+                <div class="field-group">
+                    <label for="Content">Write your thoughts here...</label>
+                    <textarea rows="8" placeholder="Write your thoughts here..." data-val="true" data-val-required="The Content field is required." id="Instruction_Content" name="Instruction.Content">
+</textarea>
+                </div>
+                <div class="field-row">
+                    <div class="field-half">
+                        <label for="Goal">Goal</label>
+                        <input placeholder="Goal" type="text" data-val="true" data-val-required="The Goal field is required." id="Instruction_Goal" name="Instruction.Goal" value="" />
+                    </div>
+                    <div class="field-half">
+                        <label for="Notes">Notes</label>
+                        <input placeholder="Notes" type="text" data-val="true" data-val-required="The Notes field is required." id="Instruction_Notes" name="Instruction.Notes" value="" />
+                    </div>
+                </div>
+            </div>
+        </form>
+        <form id="cancelForm" method="post" action="/?handler=Cancel"><input name="__RequestVerificationToken" type="hidden" value="CfDJ8B74rpNR0n5HibaSWsAo31cdcR1S1eCK7QXfWrwo5hoLeZXLUUEvUp6052Dt6dMB9AdOeOHEQpwz5WgWMwLO2AM69qTqtDdEtoqvzaObOKAiFap0mWMREjn3T1KHKvgcznRAupHV4chHuUPMBNnuxHE" /></form>
+    </section>
+
+    <section class="list-panel">
+        <div class="list-header">
+            <div>
+                <p class="small-label">JOURNAL ENTRIES</p>
+                <h2>maj 2026</h2>
+                <p class="list-meta">m&#xE5;ndag Â· 0 entry(s)</p>
+            </div>
+            <button class="add-button" type="button">+</button>
+        </div>
+
+            <div class="card empty-state">
+                <p>No journal entries yet. Click Done to save your first entry.</p>
+            </div>
+    </section>
+</div>
+
+    </main>
+    <footer>
+        <p>Built with ASP.NET Core Razor Pages.</p>
+    </footer>
+</body>
+</html>
+
