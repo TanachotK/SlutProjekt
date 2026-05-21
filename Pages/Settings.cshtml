@@ -1,0 +1,49 @@
+@page
+@model SettingsModel
+@{
+    ViewData["Title"] = "Settings - Daily Journal";
+}
+
+<div class="settings-container">
+    <section class="settings-section">
+        <h1>Settings</h1>
+        
+        <div class="settings-group">
+            <h2>Theme</h2>
+            <p>Customize your experience with theme settings</p>
+            
+            <div class="setting-item">
+                <label for="darkModeToggle">
+                    <strong>Dark Mode</strong>
+                    <p class="setting-description">Switch between light and dark themes for comfortable viewing</p>
+                </label>
+                <button id="darkModeToggle" class="theme-toggle" type="button">
+                    🌙 Dark
+                </button>
+            </div>
+        </div>
+
+        <div class="settings-group">
+            <h2>Data & Storage</h2>
+            <p>Manage your journal entries</p>
+            
+            <div class="setting-item">
+                <strong>Journal Entries</strong>
+                <p class="setting-description">All entries are stored locally in JSON format</p>
+                <p class="setting-description" style="font-size: 0.9rem; color: #64748b;">
+                    File location: <code>journal-entries.json</code>
+                </p>
+            </div>
+        </div>
+
+        <div class="settings-group">
+            <h2>About the App</h2>
+            <p>
+                Daily Journal v1.0 - Built with ASP.NET Core Razor Pages<br>
+                <a href="/about">Learn more about this application →</a>
+            </p>
+        </div>
+
+        <a href="/" class="back-link">← Back to Journal</a>
+    </section>
+</div>

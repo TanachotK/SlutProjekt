@@ -1,0 +1,43 @@
+@page
+@model AboutModel
+@{
+    ViewData["Title"] = "About - Daily Journal";
+}
+
+<div class="about-container">
+    <section class="about-section">
+        <h1>About Daily Journal</h1>
+        <p>Welcome to Daily Journal, a simple yet powerful web application designed to help you keep track of your daily thoughts, goals, and progress.</p>
+
+        <h2>Features</h2>
+        <ul>
+            <li><strong>Create Entries:</strong> Write your daily thoughts and reflections</li>
+            <li><strong>Set Goals:</strong> Define what you want to achieve each day</li>
+            <li><strong>Add Notes:</strong> Keep important notes alongside your entries</li>
+            <li><strong>Edit & Delete:</strong> Modify or remove entries as needed</li>
+            <li><strong>Dark Mode:</strong> Switch between light and dark themes for comfortable reading</li>
+            <li><strong>Local Storage:</strong> All your entries are saved locally in JSON format</li>
+        </ul>
+
+        <h2>How It Works</h2>
+        <p>
+            Daily Journal uses ASP.NET Core Razor Pages to provide a smooth user experience. 
+            Your journal entries are stored in a JSON file, making it easy to backup and manage your data.
+        </p>
+
+        <h2>Getting Started</h2>
+        <ol>
+            <li>Navigate to the <a href="/">Home</a> page</li>
+            <li>Click the <strong>+</strong> button to create a new entry</li>
+            <li>Fill in your date, title, thoughts, goals, and notes</li>
+            <li>Click <strong>Done</strong> to save your entry</li>
+            <li>View all your entries in the list panel on the right</li>
+            <li>Use <strong>Edit</strong> to modify entries or <strong>Delete</strong> to remove them</li>
+        </ol>
+
+        <h2>Dark Mode</h2>
+        <p>Click the dark mode button in the header to toggle between light and dark themes. Your preference is saved automatically!</p>
+
+        <a href="/" class="back-link">← Back to Journal</a>
+    </section>
+</div>
