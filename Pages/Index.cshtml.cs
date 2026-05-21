@@ -3,7 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SlutProjekt.Models;
 
-namespace SlutProjekt;
+
+namespace SlutProjekt.Pages;
+   
 
 public class IndexModel : PageModel
 {

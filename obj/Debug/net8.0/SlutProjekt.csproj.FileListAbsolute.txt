@@ -28,6 +28,7 @@ C:\Project\SlutProjekt\obj\Debug\net8.0\staticwebassets.build.endpoints.json
 C:\Project\SlutProjekt\obj\Debug\net8.0\swae.build.ex.cache
 C:\Project\SlutProjekt\bin\Debug\net8.0\SlutProjekt.staticwebassets.runtime.json
 C:\Project\SlutProjekt\obj\Debug\net8.0\SlutProjekt.sourcelink.json
+C:\Users\tanac\OneDrive\Documents\GitHub\SlutProjekt\bin\Debug\net8.0\journal-entries.json
 C:\Users\tanac\OneDrive\Documents\GitHub\SlutProjekt\bin\Debug\net8.0\SlutProjekt.staticwebassets.runtime.json
 C:\Users\tanac\OneDrive\Documents\GitHub\SlutProjekt\bin\Debug\net8.0\SlutProjekt.staticwebassets.endpoints.json
 C:\Users\tanac\OneDrive\Documents\GitHub\SlutProjekt\bin\Debug\net8.0\SlutProjekt.exe
@@ -58,4 +59,3 @@ C:\Users\tanac\OneDrive\Documents\GitHub\SlutProjekt\obj\Debug\net8.0\refint\Slu
 C:\Users\tanac\OneDrive\Documents\GitHub\SlutProjekt\obj\Debug\net8.0\SlutProjekt.pdb
 C:\Users\tanac\OneDrive\Documents\GitHub\SlutProjekt\obj\Debug\net8.0\SlutProjekt.genruntimeconfig.cache
 C:\Users\tanac\OneDrive\Documents\GitHub\SlutProjekt\obj\Debug\net8.0\ref\SlutProjekt.dll
-C:\Users\tanac\OneDrive\Documents\GitHub\SlutProjekt\bin\Debug\net8.0\journal-entries.json
